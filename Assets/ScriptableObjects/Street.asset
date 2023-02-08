@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bcabb0d5b0e64b4985f43e47687cdee, type: 3}
+  m_Name: Street
+  m_EditorClassIdentifier: 
+  ground: {fileID: 9004704093350095521, guid: 1f77ec9d1de01b94890858e058e280ca, type: 3}
+  maxInSuccessione: 4
