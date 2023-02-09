@@ -5,7 +5,9 @@ using UnityEngine;
 public class Gestione_Player : MonoBehaviour
 {
     [SerializeField] int forzaAvanzamento = 1;
-    //[SerializeField] private Animator animazione;
+    [SerializeField] private Animator animazione;
+
+    [SerializeField] private SpawnerGround groundSpawner;
 
     //private Quaternion rotazione = Quaternion.identity;
 
@@ -27,24 +29,29 @@ public class Gestione_Player : MonoBehaviour
         if (Input.GetKeyDown("up") || Input.GetButtonDown("Jump"))
         {
             transform.Translate(new Vector3(0, 0, forzaAvanzamento));
-            //animazione.SetTrigger("salto");
+            animazione.SetTrigger("salto");
         }
 
         else if (Input.GetKeyDown("down"))
         {
             transform.Translate(new Vector3(0, 0, -forzaAvanzamento));
+            animazione.SetTrigger("salto");
         }
 
         //Movimento orizzontale
         if (Input.GetKeyDown("right"))
         {
             transform.Translate(new Vector3(forzaAvanzamento, 0, 0));
+            animazione.SetTrigger("salto");
         }
 
         else if (Input.GetKeyDown("left"))
         {
             transform.Translate(new Vector3(-forzaAvanzamento, 0, 0));
+            animazione.SetTrigger("salto");
         }
+
+        groundSpawner.SpawnGround(false, transform.position);
 
     }
 }

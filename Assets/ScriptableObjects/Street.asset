@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bcabb0d5b0e64b4985f43e47687cdee, type: 3}
+  m_Script: {fileID: 11500000, guid: a574583b4df9a5f43a05f1226ace379e, type: 3}
   m_Name: Street
   m_EditorClassIdentifier: 
-  ground: {fileID: 9004704093350095521, guid: 1f77ec9d1de01b94890858e058e280ca, type: 3}
-  maxInSuccessione: 4
+  possibleGround:
+  - {fileID: 9004704093350095521, guid: 1f77ec9d1de01b94890858e058e280ca, type: 3}
+  maxInSuccession: 4
