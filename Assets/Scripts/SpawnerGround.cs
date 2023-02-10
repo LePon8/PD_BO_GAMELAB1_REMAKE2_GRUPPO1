@@ -47,7 +47,7 @@ public class SpawnerGround : MonoBehaviour
         if (currentPosition.z - playerPos.z < minDistanceToPlayer || (isStart))
         {
             int whichGround = Random.Range(0, groundDatas.Count);
-            int groundInSuccession = Random.Range(3, groundDatas[whichGround].maxInSuccession);
+            int groundInSuccession = Random.Range(groundDatas[whichGround].maxInSuccession, groundDatas[whichGround].maxInSuccession);
             for (int i = 0; i < groundInSuccession; i++)
             {
                 GameObject ground = Instantiate(groundDatas[whichGround].possibleGround[Random.Range(0, groundDatas[whichGround].possibleGround.Count)], currentPosition, Quaternion.identity);

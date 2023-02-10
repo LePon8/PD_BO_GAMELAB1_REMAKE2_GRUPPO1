@@ -7,4 +7,5 @@ public class GroundData : ScriptableObject
 {
     public List<GameObject> possibleGround;
     public int maxInSuccession;
+    public int minInSuccession;
 }

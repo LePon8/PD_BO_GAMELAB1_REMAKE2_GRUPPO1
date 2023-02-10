@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   possibleGround:
   - {fileID: 3667327885379444302, guid: bf7e3c0a276edd84f93033a17a62a2e2, type: 3}
-  maxInSuccession: 3
+  maxInSuccession: 4
+  minInSuccession: 3
