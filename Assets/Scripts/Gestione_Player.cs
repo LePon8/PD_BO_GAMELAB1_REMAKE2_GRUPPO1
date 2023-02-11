@@ -14,8 +14,8 @@ public class Gestione_Player : MonoBehaviour
 
     [Header("Score")]
     [SerializeField] Text scoreText;
-    int score = 1;
-    //int maxScore;
+    int score = 0;
+    int maxScore;
     //int minScore;
 
     //private Quaternion rotazione = Quaternion.identity;
@@ -41,7 +41,13 @@ public class Gestione_Player : MonoBehaviour
         {
             transform.Translate(new Vector3(0, 0, forzaAvanzamento));
             animazione.SetTrigger("salto");
-            scoreText.text = "" + score++;
+            score++;
+
+            if (maxScore < score)
+            {
+                scoreText.text = "" + score;
+                maxScore = score;
+            }
         }
 
         else if (Input.GetKeyDown("down"))
@@ -49,8 +55,10 @@ public class Gestione_Player : MonoBehaviour
             transform.Translate(new Vector3(0, 0, -forzaAvanzamento));
             animazione.SetTrigger("salto");
             //scoreText.text = maxScore.ToString();
-            //score = minScore--;
+            score --;
         }
+
+
 
         //Movimento orizzontale
         if (Input.GetKeyDown("right"))
