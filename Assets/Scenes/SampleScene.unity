@@ -646,10 +646,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c4d846c7488dab4bb62411580a83c69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inGame: 0
   startMenu: {fileID: 115359298}
   pausa: {fileID: 202034887}
-  textScore: {fileID: 780789080}
 --- !u!4 &310391616
 Transform:
   m_ObjectHideFlags: 0
@@ -1544,6 +1542,7 @@ MonoBehaviour:
   animazione: {fileID: 1825695838}
   stopPosition: 6
   groundSpawner: {fileID: 295331898}
+  scoreText: {fileID: 780789080}
 --- !u!4 &1854660858
 Transform:
   m_ObjectHideFlags: 0

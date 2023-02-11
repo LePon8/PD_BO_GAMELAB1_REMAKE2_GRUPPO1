@@ -11,9 +11,19 @@ public class Gestione_Player : MonoBehaviour
 
     [Header("Ground")]
     [SerializeField] private SpawnerGround groundSpawner;
+
+    [Header("Score")]
+    [SerializeField] Text scoreText;
+    int score = 1;
+    //int maxScore;
+    //int minScore;
+
+    //private Quaternion rotazione = Quaternion.identity;
+
+
     private void Start()
     {
-        
+        scoreText.text = "0";
     }
 
     // Update is called once per frame
@@ -26,18 +36,20 @@ public class Gestione_Player : MonoBehaviour
     public void Movimento()
     {
         //maxScore = score;
-
         //Movimento verticale
         if (Input.GetKeyDown("up") || Input.GetButtonDown("Jump"))
         {
             transform.Translate(new Vector3(0, 0, forzaAvanzamento));
             animazione.SetTrigger("salto");
+            scoreText.text = "" + score++;
         }
 
         else if (Input.GetKeyDown("down"))
         {
             transform.Translate(new Vector3(0, 0, -forzaAvanzamento));
             animazione.SetTrigger("salto");
+            //scoreText.text = maxScore.ToString();
+            //score = minScore--;
         }
 
         //Movimento orizzontale
