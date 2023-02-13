@@ -1,0 +1,363 @@
+fileFormatVersion: 2
+guid: 71976db95850e3842b157e5a38ebb136
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2973093552332344111
+    second: Candy_Play
+  - first:
+      213: 5498892243958425694
+    second: IMG_0155_4
+  - first:
+      213: 2774747087667077213
+    second: IMG_0155_6
+  - first:
+      213: 8119918538634089650
+    second: IMG_0155_8
+  - first:
+      213: 2370721528340979113
+    second: IMG_0155_10
+  - first:
+      213: -1586473455369755442
+    second: IMG_0155_11
+  - first:
+      213: -2564870353154946742
+    second: Candy_Stop
+  - first:
+      213: 5360434007504396450
+    second: Candy_Return
+  - first:
+      213: -5403687271329960477
+    second: Candy_Escape
+  - first:
+      213: -8708504977804444871
+    second: Candy_Boost_1
+  - first:
+      213: 5119895660263348721
+    second: Candy_Boost_2
+  - first:
+      213: 7147900212893354783
+    second: Candy_Background_1
+  - first:
+      213: 8414403939157894170
+    second: Candy_Background_2
+  - first:
+      213: 6748933702682447835
+    second: Candy_Background_3
+  - first:
+      213: -8535085064506126475
+    second: Candy_Boost_3
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Candy_Play
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 2976
+        width: 401
+        height: 310
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2b06ce65dc824920800000000000000
+      internalID: 2973093552332344111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Candy_Stop
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 2469
+        width: 246
+        height: 391
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a49c449c000c76cd0800000000000000
+      internalID: -2564870353154946742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Candy_Return
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 2005
+        width: 325
+        height: 370
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a0293b3456146a40800000000000000
+      internalID: 5360434007504396450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Candy_Escape
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 1457
+        width: 386
+        height: 426
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ede3138e0f3205b0800000000000000
+      internalID: -5403687271329960477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Candy_Boost_1
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 275
+        width: 740
+        height: 468
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93bbe31ccdc252780800000000000000
+      internalID: -8708504977804444871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Candy_Boost_2
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 337
+        width: 885
+        height: 268
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f99f050af58d0740800000000000000
+      internalID: 5119895660263348721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Candy_Background_1
+      rect:
+        serializedVersion: 2
+        x: 1428
+        y: 2705
+        width: 956
+        height: 641
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 152, y: 158, z: 162, w: 54}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1b82775f51723360800000000000000
+      internalID: 7147900212893354783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Candy_Background_2
+      rect:
+        serializedVersion: 2
+        x: 1427
+        y: 1891
+        width: 976
+        height: 696
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 283, y: 333, z: 327, w: 248}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a14672e1dc7f5c470800000000000000
+      internalID: 8414403939157894170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Candy_Background_3
+      rect:
+        serializedVersion: 2
+        x: 1462
+        y: 1220
+        width: 937
+        height: 581
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 422, y: 110, z: 147, w: 148}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdf8c09f17709ad50800000000000000
+      internalID: 6748933702682447835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Candy_Boost_3
+      rect:
+        serializedVersion: 2
+        x: 1928
+        y: 270
+        width: 447
+        height: 616
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57fce5aca594d8980800000000000000
+      internalID: -8535085064506126475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 52472d94a37e2f542a8feb57274cd9f9
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
