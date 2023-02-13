@@ -1,23 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
     [SerializeField] GameObject startMenu;
     [SerializeField] GameObject pausa;
+    [SerializeField] GameObject gameOver;
 
     // Start is called before the first frame update
     void Start()
     {
         //Disattiva lo script del player cercandolo in scena
         GameObject.Find("Player").GetComponent<Gestione_Player>().enabled = false;
+        GameObject.Find("Main Camera").GetComponent<Rigidbody>().isKinematic = true;
     }
 
     // Update is called once per frame
     void Update()
     {
         Pausa();
+        GameOver();
     }
 
     public void StartGame()
@@ -25,6 +29,8 @@ public class UIManager : MonoBehaviour
         //Disattiva il menu e riattiva lo script
         startMenu.SetActive(false);
         GameObject.Find("Player").GetComponent<Gestione_Player>().enabled = true;
+        GameObject.Find("Main Camera").GetComponent<Rigidbody>().isKinematic = false;
+
     }
 
     public void Pausa()
@@ -34,7 +40,8 @@ public class UIManager : MonoBehaviour
             //Attiva il menu di pausa e disattiva lo script del player
             pausa.SetActive(true);
             GameObject.Find("Player").GetComponent<Gestione_Player>().enabled = false;
-           
+            GameObject.Find("Main Camera").GetComponent<Rigidbody>().isKinematic = true;
+
         }
     }
 
@@ -43,5 +50,23 @@ public class UIManager : MonoBehaviour
     {
         pausa.SetActive(false);
         GameObject.Find("Player").GetComponent<Gestione_Player>().enabled = true;
+        GameObject.Find("Main Camera").GetComponent<Rigidbody>().isKinematic = false;
+    }
+
+    public void GameOver()
+    {
+        if(GameObject.Find("Player").transform.position.z < GameObject.Find("Main Camera").transform.position.z)
+        {
+            gameOver.SetActive(true);
+            GameObject.Find("Player").GetComponent<Gestione_Player>().enabled = false;
+            GameObject.Find("Main Camera").GetComponent<Rigidbody>().isKinematic = true;
+
+        }
+
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene("SampleScene");
     }
 }
