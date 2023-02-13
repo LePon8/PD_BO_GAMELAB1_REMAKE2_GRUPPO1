@@ -11,8 +11,18 @@ public class Gestione_Player : MonoBehaviour
 
     [Header("Ground")]
     [SerializeField] private SpawnerGround groundSpawner;
+
+    [Header("Score")]
+    [SerializeField] Text scoreText;
+    int score = 0;
+    int maxScore;
+
+    UIManager uimanager;
+
+
     private void Start()
     {
+        scoreText.text = "0";
         
     }
 
@@ -25,20 +35,28 @@ public class Gestione_Player : MonoBehaviour
 
     public void Movimento()
     {
-        //maxScore = score;
-
         //Movimento verticale
         if (Input.GetKeyDown("up") || Input.GetButtonDown("Jump"))
         {
             transform.Translate(new Vector3(0, 0, forzaAvanzamento));
             animazione.SetTrigger("salto");
+            score++;
+
+            if (maxScore < score)
+            {
+                scoreText.text = "" + score;
+                maxScore = score;
+            }
         }
 
         else if (Input.GetKeyDown("down"))
         {
             transform.Translate(new Vector3(0, 0, -forzaAvanzamento));
             animazione.SetTrigger("salto");
+            score --;
         }
+
+
 
         //Movimento orizzontale
         if (Input.GetKeyDown("right"))
@@ -68,4 +86,13 @@ public class Gestione_Player : MonoBehaviour
             transform.position = new Vector3(-stopPosition, transform.position.y, transform.position.z);
         }
     }
+
+    //void OnBecameVisible()
+    //{
+    //    Debug.Log("visible");
+    //}
+    //void OnBecameInvisible()
+    //{
+    //    uimanager.GameOver();
+    //}
 }

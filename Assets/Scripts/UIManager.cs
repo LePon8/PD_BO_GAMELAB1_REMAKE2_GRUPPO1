@@ -1,47 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 public class UIManager : MonoBehaviour
 {
-    //Controlla se sei in gioco
-    [SerializeField] bool inGame = false;
-
     [SerializeField] GameObject startMenu;
     [SerializeField] GameObject pausa;
-
-    [SerializeField] Text textScore;
-    int score = 1;
-    int maxScore;
-    int minScore;
-
-
-    
+    [SerializeField] GameObject gameOver;
 
     // Start is called before the first frame update
     void Start()
     {
         //Disattiva lo script del player cercandolo in scena
         GameObject.Find("Player").GetComponent<Gestione_Player>().enabled = false;
-        
-        //Imposta lo score a zero
-        textScore.text = "0";
+        GameObject.Find("Main Camera").GetComponent<Rigidbody>().isKinematic = true;
     }
 
     // Update is called once per frame
     void Update()
     {
         Pausa();
-        Score();
+        GameOver();
     }
 
     public void StartGame()
     {
-        //Controlla se sei in gioco
-        inGame = true;
         //Disattiva il menu e riattiva lo script
         startMenu.SetActive(false);
         GameObject.Find("Player").GetComponent<Gestione_Player>().enabled = true;
+        GameObject.Find("Main Camera").GetComponent<Rigidbody>().isKinematic = false;
+
     }
 
     public void Pausa()
@@ -51,8 +40,8 @@ public class UIManager : MonoBehaviour
             //Attiva il menu di pausa e disattiva lo script del player
             pausa.SetActive(true);
             GameObject.Find("Player").GetComponent<Gestione_Player>().enabled = false;
-            inGame = false;
-           
+            GameObject.Find("Main Camera").GetComponent<Rigidbody>().isKinematic = true;
+
         }
     }
 
@@ -61,30 +50,23 @@ public class UIManager : MonoBehaviour
     {
         pausa.SetActive(false);
         GameObject.Find("Player").GetComponent<Gestione_Player>().enabled = true;
-        inGame = true;
+        GameObject.Find("Main Camera").GetComponent<Rigidbody>().isKinematic = false;
     }
 
-
-    //aggiorna lo score andando avanti
-    public void Score()
+    public void GameOver()
     {
-        if(inGame == true)
+        if(GameObject.Find("Player").transform.position.z < GameObject.Find("Main Camera").transform.position.z)
         {
-            maxScore = score;
+            gameOver.SetActive(true);
+            GameObject.Find("Player").GetComponent<Gestione_Player>().enabled = false;
+            GameObject.Find("Main Camera").GetComponent<Rigidbody>().isKinematic = true;
 
-            if(Input.GetKeyDown("up") || Input.GetButtonDown("Jump"))
-            {
-                score++;
-                textScore.text = "" + maxScore;
-            }
-            //else if (Input.GetKeyDown("down"))
-            //{
-            //    minScore--;
-            //    score = minScore;
-            //    maxScore != minScore;
-                
-            //    //maxScore = score;
-            //}
         }
+
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene("SampleScene");
     }
 }
