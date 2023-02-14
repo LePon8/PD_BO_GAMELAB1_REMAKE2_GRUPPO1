@@ -17,7 +17,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2291443081098039700, guid: 25eb55f2114e48f4ea8680dde32620b2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8
+      value: -7
       objectReference: {fileID: 0}
     - target: {fileID: 2291443081098039700, guid: 25eb55f2114e48f4ea8680dde32620b2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -57,7 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3852075717152727393, guid: 25eb55f2114e48f4ea8680dde32620b2, type: 3}
       propertyPath: m_Name
-      value: Wafer_piece (4) Variant
+      value: Wafer_piece (28)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25eb55f2114e48f4ea8680dde32620b2, type: 3}
