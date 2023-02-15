@@ -29,11 +29,4 @@ public class ObstacleSpawner : MonoBehaviour
             GameObject obstacle = Instantiate(obstaclePrefabs[obstacleIndex], spawnPosition, Quaternion.identity);
         }
     }
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Obstacle")
-        {
-            UIManager.Instance.GameOver();
-        }
-    }
 }

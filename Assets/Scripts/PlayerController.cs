@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class Gestione_Player : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     [Header("Giocatore")]
     [SerializeField] int forzaAvanzamento = 1;
@@ -15,7 +15,7 @@ public class Gestione_Player : MonoBehaviour
     [Header("Score")]
     [SerializeField] Text scoreText;
     int score = 0;
-    int maxScore;
+    [HideInInspector] public int maxScore = 0;
 
     UIManager uimanager;
 
@@ -88,13 +88,13 @@ public class Gestione_Player : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider collider)
     {
-        //CarScript carScript = other.GetComponent<CarScript>();
-        if ( other.gameObject.layer == EnemyLayer )
+        CarScript carScript = collider.GetComponent<CarScript>();
+        if ( carScript != null )
         {
             Debug.Log("splat");
-            uimanager.GameOver();
+            uimanager.GameOver(true);
 
         }
     }

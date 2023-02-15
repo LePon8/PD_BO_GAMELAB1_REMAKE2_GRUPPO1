@@ -6,70 +6,78 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     [HideInInspector] public static UIManager Instance;
-    [SerializeField] GameObject startMenu;
-    [SerializeField] GameObject pausa;
-    [SerializeField] GameObject gameOver;
+
+    [Header("Setup in scene")]
+    public string MainSceneName;
+    [SerializeField] PlayerController playerController;
+    [SerializeField] CameraController cameraController;
+
+    [Header("UI elements")]
+    [SerializeField] GameObject UIStartMenu;
+    [SerializeField] GameObject UIPausa;
+    [SerializeField] GameObject UIGameOver;
 
     // Start is called before the first frame update
     void Start()
     {
+        
         if (Instance == null)
             Instance = this;
         //Disattiva lo script del player cercandolo in scena
-        GameObject.Find("Player").GetComponent<Gestione_Player>().enabled = false;
-        GameObject.Find("Main Camera").GetComponent<Rigidbody>().isKinematic = true;
+        playerController.enabled = false;
+        cameraController.IsStopped = true;
+        //Qui c'era da suicidarsi tutto funzionava usando la funzione Find e usava una String Hardcoded (Simon)
     }
 
     // Update is called once per frame
     void Update()
     {
-        Pausa();
-        GameOver();
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Pausa();
+        }
+        if (playerController.transform.position.z < cameraController.transform.position.z)
+        {
+            GameOver(false);
+        }
     }
 
     public void StartGame()
     {
         //Disattiva il menu e riattiva lo script
-        startMenu.SetActive(false);
-        GameObject.Find("Player").GetComponent<Gestione_Player>().enabled = true;
-        GameObject.Find("Main Camera").GetComponent<Rigidbody>().isKinematic = false;
+        UIStartMenu.SetActive(false);
+        playerController.enabled = true;
+        cameraController.IsStopped = false;
 
     }
 
     public void Pausa()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            //Attiva il menu di pausa e disattiva lo script del player
-            pausa.SetActive(true);
-            GameObject.Find("Player").GetComponent<Gestione_Player>().enabled = false;
-            GameObject.Find("Main Camera").GetComponent<Rigidbody>().isKinematic = true;
-
-        }
+        //Attiva il menu di pausa e disattiva lo script del player
+        UIPausa.SetActive(true);
+        playerController.enabled = false;
+        cameraController.IsStopped = true;
     }
 
     //Quando premo il tasto "Resume" toglie la pausa e riattiva lo script del giocatore
     public void Resume()
     {
-        pausa.SetActive(false);
-        GameObject.Find("Player").GetComponent<Gestione_Player>().enabled = true;
-        GameObject.Find("Main Camera").GetComponent<Rigidbody>().isKinematic = false;
+        UIPausa.SetActive(false);
+        playerController.enabled = true;
+        cameraController.IsStopped = false;
     }
-
-    public void GameOver()
+    
+    public void GameOver(bool IsSplat)
     {
-        if(GameObject.Find("Player").transform.position.z < GameObject.Find("Main Camera").transform.position.z)
-        {
-            gameOver.SetActive(true);
-            GameObject.Find("Player").GetComponent<Gestione_Player>().enabled = false;
-            GameObject.Find("Main Camera").GetComponent<Rigidbody>().isKinematic = true;
-
-        }
-
+        UIGameOver.SetActive(true);
+        playerController.enabled = false;
+        cameraController.IsStopped = true;
+        if (IsSplat == true)
+            playerController.transform.localScale =new Vector3(1, 0.1f, 1);
     }
 
     public void Restart()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene(MainSceneName);
     }
 }
