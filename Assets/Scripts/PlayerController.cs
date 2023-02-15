@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     UIManager uimanager;
 
     [SerializeField] LayerMask EnemyLayer;
+    [SerializeField] LayerMask ObstacleLayerMask;
+    [SerializeField] Transform GraphicsTransform;
 
     private void Start()
     {
@@ -37,11 +39,15 @@ public class PlayerController : MonoBehaviour
     public void Movimento()
     {
         //Movimento verticale
-        if (Input.GetKeyDown("up") || Input.GetButtonDown("Jump"))
+        if (Input.GetKeyDown("up") || Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.W))
         {
-            transform.Translate(new Vector3(0, 0, forzaAvanzamento));
+            if (CheckDirection(Vector3.forward))
+            {
+                transform.Translate(new Vector3(0, 0, forzaAvanzamento));
+                score++;
+
+            }
             animazione.SetTrigger("salto");
-            score++;
 
             if (maxScore < score)
             {
@@ -50,30 +56,46 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        else if (Input.GetKeyDown("down"))
+        else if (Input.GetKeyDown("down") || Input.GetKeyDown(KeyCode.S))
         {
-            transform.Translate(new Vector3(0, 0, -forzaAvanzamento));
+            if (CheckDirection(Vector3.back))
+            {
+                transform.Translate(new Vector3(0, 0, -forzaAvanzamento));
+                score --;
+            }
             animazione.SetTrigger("salto");
-            score --;
         }
 
 
 
         //Movimento orizzontale
-        if (Input.GetKeyDown("right"))
+        if (Input.GetKeyDown("right") || Input.GetKeyDown(KeyCode.D))
         {
-            transform.Translate(new Vector3(forzaAvanzamento, 0, 0));
+            if (CheckDirection(Vector3.right))
+                transform.Translate(new Vector3(forzaAvanzamento, 0, 0));
             animazione.SetTrigger("salto");
         }
 
-        else if (Input.GetKeyDown("left"))
+        else if (Input.GetKeyDown("left") || Input.GetKeyDown(KeyCode.A))
         {
-            transform.Translate(new Vector3(-forzaAvanzamento, 0, 0));
+            if (CheckDirection(Vector3.left))
+                transform.Translate(new Vector3(-forzaAvanzamento, 0, 0));
             animazione.SetTrigger("salto");
+            
         }
 
         groundSpawner.SpawnGround(false, transform.position);
 
+    }
+
+    bool CheckDirection(Vector3 DirectionVector)
+    {
+        GraphicsTransform.LookAt(GraphicsTransform.position + DirectionVector, Vector3.up);
+        if (!Physics.CheckBox(transform.position + DirectionVector, Vector3.one * 0.45f, Quaternion.identity, ObstacleLayerMask))
+        {
+            return true;
+        }
+        return false;
     }
 
     void Limits()

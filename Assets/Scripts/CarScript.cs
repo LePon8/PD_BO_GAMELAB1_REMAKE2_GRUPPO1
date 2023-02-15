@@ -17,8 +17,14 @@ public class CarScript : MonoBehaviour
 
     void Update()
     {
+        if (CarLifetime <= 0f)
+        {
+            Destroy(gameObject);
+            return;
+        }
         if (PowerUpManager.Instance.freezePowerUp == false)
             transform.position += new Vector3(CarSpeed * Time.deltaTime, 0, 0);
         //currentSpeed += speedIncrement * Time.deltaTime;
+        CarLifetime -= Time.deltaTime;
     }
 }

@@ -4,29 +4,40 @@ using UnityEngine;
 
 public class ObstacleSpawner : MonoBehaviour
 {
-    public List<GameObject> obstaclePrefabs;
-    public float spawnInterval = 2.0f;
+    public GameObject[] obstaclePrefabs;
+    [SerializeField] Transform[] SpawnPoints;
+    [Range(0f,1f)] public float SpawnChance = 0.2f;
+    //public float spawnInterval = 2.0f;
     public float spawnDistanceFromPlayer = 0.0f;
 
-    private float spawnTimer = 0.0f;
+    //private float spawnTimer = 0.0f;
 
     
     // Update is called once per frame
-    void Update()
+    void Start()
     {
-        spawnTimer += Time.deltaTime;
-
-        if (spawnTimer >= spawnInterval)
+        foreach (Transform spawnPoint in SpawnPoints)
         {
-            spawnTimer = 0.0f;
+            float RNGroll = Random.Range(0f, 1f);
 
-            // Generate a random spawn point along the length of the strip
-            float spawnPoint = transform.position.x + Random.Range(0.0f, GetComponent<SpriteRenderer>().bounds.size.x);
+            if (RNGroll < SpawnChance)
+            {
+                int obstacleIndex = Random.Range(0, obstaclePrefabs.Length -1);
+                Instantiate(obstaclePrefabs[obstacleIndex], spawnPoint.position, Quaternion.identity, transform);
+            }
+        }
+        // Generate a random spawn point along the length of the strip
+        //float spawnPoint = transform.position.x + Random.Range(0.0f, GetComponent<SpriteRenderer>().bounds.size.x);
 
-            // Spawn the obstacle
-            Vector3 spawnPosition = new Vector3(spawnPoint, transform.position.y, transform.position.z + spawnDistanceFromPlayer);
-            int obstacleIndex = Random.Range(0, obstaclePrefabs.Count);
-            GameObject obstacle = Instantiate(obstaclePrefabs[obstacleIndex], spawnPosition, Quaternion.identity);
+        // Spawn the obstacle
+
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        foreach (Transform spawnPoint in SpawnPoints)
+        {
+            Gizmos.DrawWireCube(spawnPoint.position + (Vector3.up * 0.5f), Vector3.one);
         }
     }
 }

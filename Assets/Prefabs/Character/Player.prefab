@@ -57,6 +57,10 @@ MonoBehaviour:
   EnemyLayer:
     serializedVersion: 2
     m_Bits: 64
+  ObstacleLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
+  GraphicsTransform: {fileID: 1309591927123888610}
 --- !u!65 &1740304916440126357
 BoxCollider:
   m_ObjectHideFlags: 0
