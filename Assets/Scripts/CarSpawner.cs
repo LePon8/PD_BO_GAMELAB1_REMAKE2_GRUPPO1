@@ -70,17 +70,19 @@ public class CarSpawner : MonoBehaviour
         {
             SpawnEnemies();
             CarInSequence++;
-        }
 
-        //Aplication of times based on Car Sequence
-        if (CarSequenceAmount >= CarInSequence)
-        {
-            TimeUntillNextCar = CarDelay + CarDelaySequence;
-            CarInSequence = 0;
-        }
-        else
-        {
-            TimeUntillNextCar = CarDelay;
+            //Aplication of times based on Car Sequence
+            if (CarSequenceAmount >= CarInSequence)
+            {
+                TimeUntillNextCar = CarDelay + CarDelaySequence;
+                CarInSequence = 0;
+            }
+            else
+            {
+                TimeUntillNextCar = CarDelay;
+            }
+
+
         }
         
         TimeUntillNextCar -= Time.deltaTime;
