@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CarSpawner : MonoBehaviour
+
+#region old unused
 //{
 //    public GameObject enemyPrefab;
 //    public float spawnMinTime = 1.0f;
@@ -38,11 +40,13 @@ public class CarSpawner : MonoBehaviour
 //        return (float)random.NextDouble() * (spawnMaxTime - spawnMinTime) + spawnMinTime;
 //    }
 //}
+
+#endregion
 {
     public GameObject enemyPrefab;
-    public Transform[] spawnPoints;
-    public float spawnIntervalMin = 1.0f;
-    public float spawnIntervalMax = 5.0f;
+    public Transform spawnPoint;
+    public float InitialSpawnIntervalMin = 1.0f;
+    public float InitialSpawnIntervalMax= 5.0f;
 
     [SerializeField] int CarSequenceAmount = 1;
     [SerializeField] float CarSpeed = 5f;
@@ -50,20 +54,51 @@ public class CarSpawner : MonoBehaviour
     [SerializeField] float CarDelaySequence = 0f;
     [SerializeField] float CarMaxDistance = 38f;
 
+    // internals
+    float InitialSpawnInterval;
+    float TimeUntillNextCar;
+    int CarInSequence;
     private void Start()
     {
-        StartCoroutine(SpawnEnemies());
+        InitialSpawnInterval = Random.Range(InitialSpawnIntervalMin, InitialSpawnIntervalMax);
+        TimeUntillNextCar = InitialSpawnInterval;
     }
 
-    private IEnumerator SpawnEnemies()
+    private void Update()
     {
-        while (true)
+        if (0 > TimeUntillNextCar)
         {
-            float spawnInterval = Random.Range(spawnIntervalMin, spawnIntervalMax);
-            yield return new WaitForSeconds(spawnInterval);
-            int spawnPointIndex = Random.Range(0, spawnPoints.Length);
-            Transform spawnPoint = spawnPoints[spawnPointIndex];
-            Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+            SpawnEnemies();
+            CarInSequence++;
         }
+
+        //Aplication of times based on Car Sequence
+        if (CarSequenceAmount >= CarInSequence)
+        {
+            TimeUntillNextCar = CarDelay + CarDelaySequence;
+            CarInSequence = 0;
+        }
+        else
+        {
+            TimeUntillNextCar = CarDelay;
+        }
+        
+        TimeUntillNextCar -= Time.deltaTime;
+        //Debug.Log(TimeUntillNextCar);
+    }
+
+    private void SpawnEnemies()
+    {
+        //Instantiation of the gameobject, saved a reference for later use
+        GameObject InstantiatedCar = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation, transform);
+        // Search for CarSript to then apply stats to it.
+        CarScript carScript = InstantiatedCar.GetComponent<CarScript>();
+        if (carScript == null)
+        {
+            Debug.LogWarning("This spawned car is missing a CarScript");
+            return;
+        }
+        carScript.CarSpeed = CarSpeed;
+        carScript.CarLifetime = CarMaxDistance / CarSpeed;
     }
 }

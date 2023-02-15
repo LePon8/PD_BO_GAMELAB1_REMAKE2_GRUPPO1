@@ -38,8 +38,8 @@ public class CameraController : MonoBehaviour
 
         //Calculation of the speed trought distance 
         float SpeedWhitDistance = CamSpeed + (CatchupSpeed * (Mathf.Clamp(-DistanceToPlayer - DistanceBeforeCatchup,0,CatchupZone) / CatchupZone));
-        Debug.Log(SpeedWhitDistance + " the Speed is this");
-        Debug.Log(-DistanceBeforeCatchup - DistanceToPlayer);
+        //Debug.Log(SpeedWhitDistance + " the Speed is this");
+        //Debug.Log(-DistanceBeforeCatchup - DistanceToPlayer);
         if (IsStopped == false)
             CameraHolder.Translate(Vector3.forward * SpeedWhitDistance * Time.deltaTime, Space.World);
     }

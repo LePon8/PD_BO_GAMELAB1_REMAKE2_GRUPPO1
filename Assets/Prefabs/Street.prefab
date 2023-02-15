@@ -237,10 +237,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 1605501629137142176, guid: 82afb95d422bd8745b378d70f242257a, type: 3}
-  spawnPoints:
-  - {fileID: 1362617639893540222}
-  spawnIntervalMin: 1
-  spawnIntervalMax: 5
+  spawnPoint: {fileID: 1362617639893540222}
+  InitialSpawnIntervalMin: 1
+  InitialSpawnIntervalMax: 5
+  CarSequenceAmount: 1
+  CarSpeed: 3
+  CarDelay: 5
+  CarDelaySequence: 0
+  CarMaxDistance: 38
 --- !u!1001 &803097267323098378
 PrefabInstance:
   m_ObjectHideFlags: 0
