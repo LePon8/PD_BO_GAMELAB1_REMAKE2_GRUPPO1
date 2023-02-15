@@ -15,6 +15,9 @@ public class SpawnerGround : MonoBehaviour
     //Creo un raccoglitore per i ground che vengono spawnati
     [SerializeField] Transform contenitore_Ground;
 
+    //Creo un array per i nemici, da qui li scelgo per farli spawnare
+    public GameObject[] enemyPrefabs;
+
     //Quantità ground presenti in scena
     private List<GameObject> currentGround = new List<GameObject>();
 

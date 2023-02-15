@@ -19,11 +19,12 @@ public class Gestione_Player : MonoBehaviour
 
     UIManager uimanager;
 
+    [SerializeField] LayerMask EnemyLayer;
 
     private void Start()
     {
-        scoreText.text = "0";
-        
+       uimanager = UIManager.Instance;
+       scoreText.text = "0";
     }
 
     // Update is called once per frame
@@ -84,6 +85,17 @@ public class Gestione_Player : MonoBehaviour
         else if(transform.position.x <= -stopPosition)
         {
             transform.position = new Vector3(-stopPosition, transform.position.y, transform.position.z);
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        //CarScript carScript = other.GetComponent<CarScript>();
+        if ( other.gameObject.layer == EnemyLayer )
+        {
+            Debug.Log("splat");
+            uimanager.GameOver();
+
         }
     }
 

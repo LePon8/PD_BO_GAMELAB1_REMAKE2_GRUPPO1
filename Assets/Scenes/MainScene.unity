@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.4964127, b: 0.57481724, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -602,6 +602,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 79a00d7507a0fd7489aec19edb568c50, type: 2}
   - {fileID: 11400000, guid: b4d1d19a7faeffb4082d083d7dadddcb, type: 2}
   contenitore_Ground: {fileID: 295331899}
+  enemyPrefabs: []
 --- !u!4 &295331899
 Transform:
   m_ObjectHideFlags: 0
@@ -626,8 +627,9 @@ GameObject:
   m_Component:
   - component: {fileID: 310391616}
   - component: {fileID: 310391615}
+  - component: {fileID: 310391617}
   m_Layer: 0
-  m_Name: UIManager
+  m_Name: Managers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -662,6 +664,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &310391617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310391614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c61b4ba341e014345bfc292ddca8bd40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  freezePowerUp: 0
 --- !u!1 &511229706
 GameObject:
   m_ObjectHideFlags: 0
@@ -1782,6 +1797,9 @@ MonoBehaviour:
   stopPosition: 4
   groundSpawner: {fileID: 295331898}
   scoreText: {fileID: 780789080}
+  EnemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!4 &1854660858
 Transform:
   m_ObjectHideFlags: 0

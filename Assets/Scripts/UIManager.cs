@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
+    [HideInInspector] public static UIManager Instance;
     [SerializeField] GameObject startMenu;
     [SerializeField] GameObject pausa;
     [SerializeField] GameObject gameOver;
@@ -12,6 +13,8 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (Instance == null)
+            Instance = this;
         //Disattiva lo script del player cercandolo in scena
         GameObject.Find("Player").GetComponent<Gestione_Player>().enabled = false;
         GameObject.Find("Main Camera").GetComponent<Rigidbody>().isKinematic = true;
