@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour
         CarScript carScript = collider.GetComponent<CarScript>();
         if ( carScript != null )
         {
-            Debug.Log("splat");
+            //Debug.Log("splat");
             uimanager.GameOver(true);
 
         }

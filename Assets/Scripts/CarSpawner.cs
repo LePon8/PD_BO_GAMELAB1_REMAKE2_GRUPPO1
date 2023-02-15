@@ -69,20 +69,20 @@ public class CarSpawner : MonoBehaviour
         if (0 > TimeUntillNextCar)
         {
             SpawnEnemies();
-            CarInSequence++;
 
             //Aplication of times based on Car Sequence
-            if (CarSequenceAmount >= CarInSequence)
+            if (CarSequenceAmount <= CarInSequence)
             {
                 TimeUntillNextCar = CarDelay + CarDelaySequence;
+                //Debug.Log("the sequence has eneded whit" + CarInSequence + "Cars");
                 CarInSequence = 0;
             }
             else
             {
                 TimeUntillNextCar = CarDelay;
+                //Debug.Log("currently" + CarInSequence);
             }
-
-
+            CarInSequence++;
         }
         
         TimeUntillNextCar -= Time.deltaTime;

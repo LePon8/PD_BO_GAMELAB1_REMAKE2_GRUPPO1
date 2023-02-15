@@ -240,10 +240,10 @@ MonoBehaviour:
   spawnPoint: {fileID: 1362617639893540222}
   InitialSpawnIntervalMin: 1
   InitialSpawnIntervalMax: 5
-  CarSequenceAmount: 1
+  CarSequenceAmount: 2
   CarSpeed: 3
-  CarDelay: 5
-  CarDelaySequence: 0
+  CarDelay: 2
+  CarDelaySequence: 5
   CarMaxDistance: 38
 --- !u!1001 &803097267323098378
 PrefabInstance:
