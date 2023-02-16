@@ -9,10 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a574583b4df9a5f43a05f1226ace379e, type: 3}
-  m_Name: Water
-  m_EditorClassIdentifier: 
-  possibleGround:
-  - {fileID: 3667327885379444302, guid: bf7e3c0a276edd84f93033a17a62a2e2, type: 3}
-  maxInSuccession: 1
-  minInSuccession: 1
+  m_Script: {fileID: 11500000, guid: d172338887212b640946ff52df178471, type: 3}
+  m_Name: PlayerGraphicChoice
+  m_EditorClassIdentifier: Assembly-CSharp::SOPlayerCharacterChoice
+  CharacterNumber: 0

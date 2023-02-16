@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     public string MainSceneName;
     [SerializeField] PlayerController playerController;
     [SerializeField] CameraController cameraController;
+    [SerializeField] LayerMask UIlayermask;
 
     [Header("UI elements")]
     [SerializeField] GameObject UIStartMenu;
@@ -40,6 +41,7 @@ public class UIManager : MonoBehaviour
         {
             GameOver(false);
         }
+
     }
 
     public void StartGame()
