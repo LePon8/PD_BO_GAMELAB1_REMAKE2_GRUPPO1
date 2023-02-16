@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] LayerMask EnemyLayer;
     [SerializeField] LayerMask ObstacleLayerMask;
+    [SerializeField] LayerMask WaterLayerMask;
+    [SerializeField] LayerMask LogLayerMask;
     [SerializeField] Transform GraphicsTransform;
 
     private void Start()
@@ -41,7 +43,7 @@ public class PlayerController : MonoBehaviour
         //Movimento verticale
         if (Input.GetKeyDown("up") || Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.W))
         {
-            if (CheckDirection(Vector3.forward))
+            if (CheckDirection(Vector3.forward, ObstacleLayerMask))
             {
                 transform.Translate(new Vector3(0, 0, forzaAvanzamento));
                 score++;
@@ -58,7 +60,7 @@ public class PlayerController : MonoBehaviour
 
         else if (Input.GetKeyDown("down") || Input.GetKeyDown(KeyCode.S))
         {
-            if (CheckDirection(Vector3.back))
+            if (CheckDirection(Vector3.back, ObstacleLayerMask))
             {
                 transform.Translate(new Vector3(0, 0, -forzaAvanzamento));
                 score --;
@@ -71,14 +73,14 @@ public class PlayerController : MonoBehaviour
         //Movimento orizzontale
         if (Input.GetKeyDown("right") || Input.GetKeyDown(KeyCode.D))
         {
-            if (CheckDirection(Vector3.right))
+            if (CheckDirection(Vector3.right, ObstacleLayerMask))
                 transform.Translate(new Vector3(forzaAvanzamento, 0, 0));
             animazione.SetTrigger("salto");
         }
 
         else if (Input.GetKeyDown("left") || Input.GetKeyDown(KeyCode.A))
         {
-            if (CheckDirection(Vector3.left))
+            if (CheckDirection(Vector3.left, ObstacleLayerMask))
                 transform.Translate(new Vector3(-forzaAvanzamento, 0, 0));
             animazione.SetTrigger("salto");
             
@@ -88,10 +90,10 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    bool CheckDirection(Vector3 DirectionVector)
+    bool CheckDirection(Vector3 DirectionVector, LayerMask layerMask)
     {
         GraphicsTransform.LookAt(GraphicsTransform.position + DirectionVector, Vector3.up);
-        if (!Physics.CheckBox(transform.position + DirectionVector, Vector3.one * 0.45f, Quaternion.identity, ObstacleLayerMask))
+        if (!Physics.CheckBox(transform.position + DirectionVector, Vector3.one * 0.45f, Quaternion.identity, layerMask))
         {
             return true;
         }
@@ -117,7 +119,33 @@ public class PlayerController : MonoBehaviour
             uimanager.GameOver(true);
             //Debug.Log("splat");
         }
+
+        if (collider.CompareTag("Log"))
+        {
+            transform.SetParent(collider.transform);
+            Debug.Log("thock");
+            
+        }
+        if (collider.CompareTag("Water"))
+        {
+            if (!Physics.CheckBox(transform.position, Vector3.one * 0.45f, Quaternion.identity, LogLayerMask))
+            {
+                uimanager.GameOver(true);
+            }            
+            //Debug.Log("splat");
+        }
+
     }
+    void OnTriggerExit(Collider collider)
+    {
+        if (collider.CompareTag("Log"))
+        {
+            transform.parent = null;
+
+        }
+    }
+
+   
 
     //void OnBecameVisible()
     //{

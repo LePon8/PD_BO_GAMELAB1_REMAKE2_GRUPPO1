@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.4964127, b: 0.57481724, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1839,5 +1839,13 @@ PrefabInstance:
       propertyPath: groundSpawner
       value: 
       objectReference: {fileID: 295331898}
+    - target: {fileID: 1740304916440126359, guid: 417fd40e9a1948946865c4e712554190, type: 3}
+      propertyPath: LogLayerMask.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 1740304916440126359, guid: 417fd40e9a1948946865c4e712554190, type: 3}
+      propertyPath: WaterLayerMask.m_Bits
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 417fd40e9a1948946865c4e712554190, type: 3}
