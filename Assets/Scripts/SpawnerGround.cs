@@ -9,6 +9,9 @@ public class SpawnerGround : MonoBehaviour
     //Numero di Ground da spawnare
     [SerializeField] private int maxGround;
 
+    [SerializeField, Tooltip("How many Line to spawn as initial Lines")] private int InitialLineCount = 10;
+    [SerializeField, Tooltip("The Prefab Used on first lines")] private GameObject InitialLine;
+
     //Creo una lista per le differenti tipologie di terreno
     [SerializeField] private List<GroundData> groundDatas = new List<GroundData>();
 
@@ -16,17 +19,24 @@ public class SpawnerGround : MonoBehaviour
     [SerializeField] Transform contenitore_Ground;
 
     //Creo un array per i nemici, da qui li scelgo per farli spawnare
-    public GameObject[] enemyPrefabs;
+    //public GameObject[] enemyPrefabs;
 
     //Quantità ground presenti in scena
     private List<GameObject> currentGround = new List<GameObject>();
 
     //Posizione Spawn primo terreno
-    private Vector3 currentPosition = new Vector3(0, 0, -5);
+    private Vector3 currentPosition = new Vector3(0, 0, -8);
 
 
     private void Start()
-    {
+    {        
+        for (int i = 0; i < InitialLineCount; i++)
+        {
+            GameObject ground = Instantiate(InitialLine, currentPosition, Quaternion.identity);
+
+            currentGround.Add(ground);
+            currentPosition.z++;
+        }
         for (int i = 0; i < maxGround; i++)
         {
             SpawnGround(true, currentPosition);
@@ -46,8 +56,10 @@ public class SpawnerGround : MonoBehaviour
 
     public void SpawnGround(bool isStart, Vector3 playerPos)
     {
-        //Se la distanza è inferiore a minDistnce, spawna un ground e ne elimina uno
-        if (currentPosition.z - playerPos.z < minDistanceToPlayer || (isStart))
+
+        
+            //Se la distanza è inferiore a minDistnce, spawna un ground e ne elimina uno
+            if (currentPosition.z - playerPos.z < minDistanceToPlayer || (isStart))
         {
             int whichGround = Random.Range(0, groundDatas.Count);
             int groundInSuccession = Random.Range(groundDatas[whichGround].maxInSuccession, groundDatas[whichGround].maxInSuccession);
