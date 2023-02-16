@@ -53,11 +53,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1272491448109260004, guid: e79d10d32c30b874ebf9171ada275532, type: 3}
       propertyPath: m_Name
-      value: Car01
+      value: Car_orange
       objectReference: {fileID: 0}
     - target: {fileID: 2198932588377660325, guid: e79d10d32c30b874ebf9171ada275532, type: 3}
       propertyPath: m_Size.x
-      value: 2.07
+      value: 1.8715738
       objectReference: {fileID: 0}
     - target: {fileID: 2198932588377660325, guid: e79d10d32c30b874ebf9171ada275532, type: 3}
       propertyPath: m_Size.y
@@ -66,6 +66,10 @@ PrefabInstance:
     - target: {fileID: 2198932588377660325, guid: e79d10d32c30b874ebf9171ada275532, type: 3}
       propertyPath: m_Size.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2198932588377660325, guid: e79d10d32c30b874ebf9171ada275532, type: 3}
+      propertyPath: m_Center.x
+      value: -0.09921318
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
