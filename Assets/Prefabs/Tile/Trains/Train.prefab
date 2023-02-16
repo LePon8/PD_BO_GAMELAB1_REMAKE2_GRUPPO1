@@ -5338,7 +5338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e996e0ba11c676c4bbbe277d2cd4a8e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TrainSpeed: 50
+  TrainSpeed: 40
   TrainIntervallTime: 7
   TrainWarn: 3
   LightAlternationTime: 0.5
@@ -5365,7 +5365,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6266405540006266072, guid: 56e4fa0e9aab60d47a69fe77f68d98da, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15
+      value: -9
       objectReference: {fileID: 0}
     - target: {fileID: 6266405540006266072, guid: 56e4fa0e9aab60d47a69fe77f68d98da, type: 3}
       propertyPath: m_LocalPosition.y
