@@ -62,13 +62,15 @@ public class CarSpawner : MonoBehaviour
     {
         InitialSpawnInterval = Random.Range(InitialSpawnIntervalMin, InitialSpawnIntervalMax);
         TimeUntillNextCar = InitialSpawnInterval;
+
+        SpawnEnemies(spawnPoint.position + (Vector3.right * CarSpeed * 2f));
     }
 
     private void Update()
     {
         if (0 > TimeUntillNextCar)
         {
-            SpawnEnemies();
+            SpawnEnemies(spawnPoint.position);
 
             //Aplication of times based on Car Sequence
             if (CarSequenceAmount <= CarInSequence)
@@ -89,10 +91,10 @@ public class CarSpawner : MonoBehaviour
         //Debug.Log(TimeUntillNextCar);
     }
 
-    private void SpawnEnemies()
+    private void SpawnEnemies(Vector3 spawnPosition)
     {
         //Instantiation of the gameobject, saved a reference for later use
-        GameObject InstantiatedCar = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation, transform);
+        GameObject InstantiatedCar = Instantiate(enemyPrefab, spawnPosition, spawnPoint.rotation, transform);
         // Search for CarSript to then apply stats to it.
         CarScript carScript = InstantiatedCar.GetComponent<CarScript>();
         if (carScript == null)
