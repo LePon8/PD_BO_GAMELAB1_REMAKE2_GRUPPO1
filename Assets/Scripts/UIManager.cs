@@ -57,6 +57,7 @@ public class UIManager : MonoBehaviour
         UIPausa.SetActive(true);
         playerController.enabled = false;
         cameraController.IsStopped = true;
+        Time.timeScale = 0f;
     }
 
     //Quando premo il tasto "Resume" toglie la pausa e riattiva lo script del giocatore
@@ -65,6 +66,7 @@ public class UIManager : MonoBehaviour
         UIPausa.SetActive(false);
         playerController.enabled = true;
         cameraController.IsStopped = false;
+        Time.timeScale = 1f;
     }
     
     public void GameOver(bool IsSplat)
