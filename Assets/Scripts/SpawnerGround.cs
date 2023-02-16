@@ -14,6 +14,7 @@ public class SpawnerGround : MonoBehaviour
 
     //Creo una lista per le differenti tipologie di terreno
     [SerializeField] private List<GroundData> groundDatas = new List<GroundData>();
+    private int LastGroundType = -1;
 
     //Creo un raccoglitore per i ground che vengono spawnati
     [SerializeField] Transform contenitore_Ground;
@@ -58,11 +59,26 @@ public class SpawnerGround : MonoBehaviour
     {
 
         
-            //Se la distanza è inferiore a minDistnce, spawna un ground e ne elimina uno
-            if (currentPosition.z - playerPos.z < minDistanceToPlayer || (isStart))
+        //Se la distanza è inferiore a minDistnce, spawna un ground e ne elimina uno
+        if (currentPosition.z - playerPos.z < minDistanceToPlayer || (isStart))
         {
             int whichGround = Random.Range(0, groundDatas.Count);
-            int groundInSuccession = Random.Range(groundDatas[whichGround].maxInSuccession, groundDatas[whichGround].maxInSuccession);
+            //Debug.Log(whichGround);
+            if (LastGroundType == whichGround)
+            {
+                for (int i = 0;i < groundDatas.Count - 1 || whichGround != LastGroundType  ; i++)
+                {
+                    //Debug.Log(LastGroundType + " and as last " + whichGround);
+                    whichGround = Random.Range(0, groundDatas.Count);
+                    if (i < groundDatas.Count)
+                    {
+                        break;
+                    }
+                }
+            }
+            LastGroundType = whichGround;
+
+            int groundInSuccession = Random.Range(groundDatas[whichGround].minInSuccession, groundDatas[whichGround].maxInSuccession);
             for (int i = 0; i < groundInSuccession; i++)
             {
                 GameObject ground = Instantiate(groundDatas[whichGround].possibleGround[Random.Range(0, groundDatas[whichGround].possibleGround.Count)], currentPosition, Quaternion.identity);
@@ -82,6 +98,7 @@ public class SpawnerGround : MonoBehaviour
                 //Rendo i ground parenti del contenitore creato
                 ground.transform.SetParent(contenitore_Ground);
                 currentPosition.z++;
+
             }
         }
     }
