@@ -7,6 +7,8 @@ TagManager:
   - Enemy
   - Log
   - Water
+  - Freeze
+  - freeze
   layers:
   - Default
   - TransparentFX

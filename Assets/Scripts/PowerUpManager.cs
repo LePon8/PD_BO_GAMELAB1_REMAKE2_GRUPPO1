@@ -6,6 +6,8 @@ public class PowerUpManager : MonoBehaviour
 {
     public static PowerUpManager Instance;
     public bool freezePowerUp;
+    public float powerUpDuration = 5f;
+    float freezeTime = 0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +18,16 @@ public class PowerUpManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        freezeTime -= Time.deltaTime;
+        if (freezeTime >= 0)
+        {
+            freezePowerUp = false;
+        }
+    }
+    
+    public void SetFreezeDuration()
+    {
+        freezeTime = powerUpDuration;
+        freezePowerUp = true;
     }
 }

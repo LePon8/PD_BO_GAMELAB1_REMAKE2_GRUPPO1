@@ -148,7 +148,17 @@ public class PlayerController : MonoBehaviour
             transform.parent = null;
             Vector3 RoundedPositionXZ = new Vector3(Mathf.Round(transform.position.x), transform.position.y, Mathf.Round(transform.position.z));
             transform.position = RoundedPositionXZ;            
+            if (Physics.CheckBox(transform.position, Vector3.one * 0.45f, Quaternion.identity, WaterLayerMask))
+            {
+                if (!Physics.CheckBox(transform.position, Vector3.one * 0.45f, Quaternion.identity, LogLayerMask))
+                {
+                    uimanager.GameOver(true);
+                }
+            }
         }
+                
+          
+        
     }
 
    

@@ -84,4 +84,9 @@ public class UIManager : MonoBehaviour
     {
         SceneManager.LoadScene(MainSceneName);
     }
+
+    public void quitApplication()
+    {
+        Application.Quit();
+    }
 }

@@ -65,7 +65,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5674983358660826853, guid: bff5492d9466c1b43a6fba8511f86572, type: 3}
       propertyPath: TrainSpeed
-      value: 90
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 6012571183555935160, guid: bff5492d9466c1b43a6fba8511f86572, type: 3}
       propertyPath: m_Size.x
