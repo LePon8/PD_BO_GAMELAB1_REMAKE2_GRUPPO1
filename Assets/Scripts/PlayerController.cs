@@ -69,23 +69,26 @@ public class PlayerController : MonoBehaviour
         }
 
 
-
-        //Movimento orizzontale
-        if (Input.GetKeyDown("right") || Input.GetKeyDown(KeyCode.D))
+        if (transform.position.x <= stopPosition - 1f)
         {
-            if (CheckDirection(Vector3.right, ObstacleLayerMask))
-                transform.Translate(new Vector3(forzaAvanzamento, 0, 0));
-            animazione.SetTrigger("salto");
+            //Movimento orizzontale
+            if (Input.GetKeyDown("right") || Input.GetKeyDown(KeyCode.D))
+            {
+                if (CheckDirection(Vector3.right, ObstacleLayerMask))
+                    transform.Translate(new Vector3(forzaAvanzamento, 0, 0));
+                animazione.SetTrigger("salto");
+            }
         }
-
-        else if (Input.GetKeyDown("left") || Input.GetKeyDown(KeyCode.A))
+        if (transform.position.x >= -stopPosition + 1f)
         {
-            if (CheckDirection(Vector3.left, ObstacleLayerMask))
-                transform.Translate(new Vector3(-forzaAvanzamento, 0, 0));
-            animazione.SetTrigger("salto");
-            
-        }
+            if (Input.GetKeyDown("left") || Input.GetKeyDown(KeyCode.A))
+            {
+                if (CheckDirection(Vector3.left, ObstacleLayerMask))
+                    transform.Translate(new Vector3(-forzaAvanzamento, 0, 0));
+                animazione.SetTrigger("salto");
 
+            }
+        }
         groundSpawner.SpawnGround(false, transform.position);
 
     }
@@ -102,13 +105,15 @@ public class PlayerController : MonoBehaviour
 
     void Limits()
     {
-        if(transform.position.x >= stopPosition)
+        if(transform.position.x >= stopPosition + 1)
         {
-            transform.position = new Vector3(stopPosition, transform.position.y, transform.position.z);
+            uimanager.GameOver(false);
+            //transform.position = new Vector3(stopPosition, transform.position.y, transform.position.z);
         }
-        else if(transform.position.x <= -stopPosition)
+        else if(transform.position.x <= -stopPosition -1)
         {
-            transform.position = new Vector3(-stopPosition, transform.position.y, transform.position.z);
+            uimanager.GameOver(false);
+            //transform.position = new Vector3(-stopPosition, transform.position.y, transform.position.z);
         }
     }
 
@@ -141,7 +146,8 @@ public class PlayerController : MonoBehaviour
         if (collider.CompareTag("Log"))
         {
             transform.parent = null;
-
+            Vector3 RoundedPositionXZ = new Vector3(Mathf.Round(transform.position.x), transform.position.y, Mathf.Round(transform.position.z));
+            transform.position = RoundedPositionXZ;            
         }
     }
 
