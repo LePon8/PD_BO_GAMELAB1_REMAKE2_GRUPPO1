@@ -53,7 +53,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1272491448109260004, guid: e79d10d32c30b874ebf9171ada275532, type: 3}
       propertyPath: m_Name
-      value: Car01
+      value: Car_orange
+      objectReference: {fileID: 0}
+    - target: {fileID: 1272491448109260004, guid: e79d10d32c30b874ebf9171ada275532, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 2198932588377660325, guid: e79d10d32c30b874ebf9171ada275532, type: 3}
       propertyPath: m_Size.x

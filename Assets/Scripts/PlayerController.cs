@@ -112,12 +112,10 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        CarScript carScript = collider.GetComponent<CarScript>();
-        if ( carScript != null )
+        if (collider.CompareTag("Enemy"))
         {
-            //Debug.Log("splat");
             uimanager.GameOver(true);
-
+            //Debug.Log("splat");
         }
     }
 

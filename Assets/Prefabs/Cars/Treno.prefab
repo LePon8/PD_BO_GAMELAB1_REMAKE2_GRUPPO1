@@ -10,10 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6266405540006266072}
   - component: {fileID: 4871544160279674413}
-  - component: {fileID: 4595720839682262950}
   m_Layer: 6
   m_Name: Treno
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,21 +45,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.07, y: 1.9585868, z: 1}
   m_Center: {x: 0, y: 0.4792934, z: 0}
---- !u!114 &4595720839682262950
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5528118142801852780}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 194f8679b2717ab45b0ff0f2a0372f33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CarSpeed: 0
-  CarLifetime: 6
-  NeverDies: 1
 --- !u!1001 &3947809762628368126
 PrefabInstance:
   m_ObjectHideFlags: 0
