@@ -57,7 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3102100038114945606, guid: 1f77ec9d1de01b94890858e058e280ca, type: 3}
       propertyPath: CarSpeed
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3102100038114945606, guid: 1f77ec9d1de01b94890858e058e280ca, type: 3}
       propertyPath: spawnPoint

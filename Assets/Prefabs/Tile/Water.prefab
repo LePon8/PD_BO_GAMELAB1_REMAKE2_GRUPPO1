@@ -1148,6 +1148,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7189335488253777723}
+  - {fileID: 946538265281277924}
   m_Father: {fileID: 141906959473504590}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1448,6 +1449,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 141906959473504590}
+  - component: {fileID: 4734363184064209693}
   m_Layer: 0
   m_Name: Water
   m_TagString: Untagged
@@ -1470,6 +1472,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4734363184064209693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3667327885379444302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fbc03c5db495e646a8ec1733a01a02f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 765860784404450114, guid: b41f037617dc23c4da7be305bff1d359, type: 3}
+  spawnPoint: {fileID: 946538265281277924}
+  InitialSpawnIntervalMin: 1
+  InitialSpawnIntervalMax: 5
+  CarSequenceAmount: 6
+  CarSpeed: 3
+  CarDelay: 3
+  CarDelaySequence: 1
+  CarMaxDistance: 30
 --- !u!1 &3718980416356217357
 GameObject:
   m_ObjectHideFlags: 0
@@ -3294,6 +3317,36 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &8675365355699083747
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 946538265281277924}
+  m_Layer: 0
+  m_Name: Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &946538265281277924
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8675365355699083747}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -13.71, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3602161160550494352}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8954069657093413724
 GameObject:
   m_ObjectHideFlags: 0
