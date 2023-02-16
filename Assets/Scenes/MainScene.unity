@@ -596,13 +596,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minDistanceToPlayer: 20
   maxGround: 20
+  InitialLineCount: 10
+  InitialLine: {fileID: 8423133540769259, guid: 97adf0cbc38a3da459ca98493f996b82, type: 3}
   groundDatas:
   - {fileID: 11400000, guid: 9ce0286d98d3d88469d696452ca3b29f, type: 2}
   - {fileID: 11400000, guid: 4f48c754639492746aa52ce92aa197e4, type: 2}
   - {fileID: 11400000, guid: 79a00d7507a0fd7489aec19edb568c50, type: 2}
   - {fileID: 11400000, guid: b4d1d19a7faeffb4082d083d7dadddcb, type: 2}
   contenitore_Ground: {fileID: 295331899}
-  enemyPrefabs: []
 --- !u!4 &295331899
 Transform:
   m_ObjectHideFlags: 0
